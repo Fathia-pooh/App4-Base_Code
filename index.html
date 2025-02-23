@@ -21,184 +21,149 @@ Brief Description of Goal of Code:
 	Goal of this code is to reproduce App three by making new questions for an issue that you're interested in asking questions about
  
 Known Issues:
-<!--Put in the issues I had from the App 3, which was mainly with the results page. Plan to use lab mate help with a code that will bring out the result page-->
-	- Results page not doing the proper calculations
+<!--Put in the issues I had from the App 3, which was mainly with the results page. Plan to use lab mate help with a code that will bring out the result page
+	- Results page not doing the proper calculations-->
 Ignore this error message if you see it using the javaScript console: Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.
 
 References:
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
-<!--Added in the code I copied from App 3. Code stops at 155 space. making changes to the title, and the questions to fit into what I want it to do for App 4 (doing Lupus and Rheumatoid arthritis)-->
-	  <head> 
-      <title>Lupus vs Rheumatoid arthritis?</title>  
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <link rel="stylesheet" href="w3.css">
-      <link rel="stylesheet" href="w3-colors-flat.css">
-   </head> 
+	
+<!code initially did not work so asked AI for help in identifying areas of error. Implemented the corrects and new codes-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lupus vs Rheumatoid arthritis?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-colors-flat.css">
+  <style>
+    img, object {
+      max-height: 90%;
+      max-width: 90%;
+    }
+    .body {
+      margin: 0;
+    }
+    .page {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: -100vw;
+      overflow-y: auto;
+      z-index: 0;
+      background-color: hsl(0, 0%, 100%);
+    }
+    .page:target {
+      left: 0vw;
+      z-index: 1;
+    }
+  </style>
+  <script>
+    var Lupus_count = 0;
+    var Rheumatoid_count = 0;
 
+    function LupusAdd() {
+      Lupus_count++;
+       alert("Lupus count: " + Lupus_count);
+    }
 
-<script>
-        var Lupus_count = 0;
-        var Rheumatoid_count = 0;
+    function RheumatoidAdd() {
+      Rheumatoid_count++;
+      alert("Rheumatoid count: " + Rheumatoid_count);
+    }
 
-
-        function LupusAdd(){
-            Lupus_count = Lupus_count + 1;
-		alert(Lupus_count);
-
-        }
-
-        function RheumatoidAdd(){
-            Rheumatoid_count = Rheumatoid_count + 1;
-        }
-
+    function diagnosisResults() {
+      var totalQuestions = 4; // Total number of questions
+      var LupusPercent = (Lupus_count / totalQuestions) * 100;
+      var RheumatoidPercent = (Rheumatoid_count / totalQuestions) * 100;
+      var resultText = document.getElementById("results");
+      resultText.innerHTML = "Probability it is Lupus = " + LupusPercent + "%<br>" +
+                             "Probability it is Rheumatoid = " + RheumatoidPercent + "%";
+    }
   </script>
-/*Added in the code that was on the instrcutions for the App assigment*\
-<style>
-       	img, object{
-            	max-height:90%;
-        		max-width:90%;
-        	}
-</style>
-<!--Used the image link in the App instruction to input the code for the image. It should link to an image of someone's hand-->
-<img src="C:\Users\80167\Downloads\bone arm.jpg" alt="Arm with 'x-ray' of the bones/joint">
-
-
-<style>	
-.body {
-     margin: 0em;
-}
-
-.page {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -100vw;
-    overflow-y: auto;
-    z-index: 0;
-    background-color: hsl(0,0%,100%);
-}
-
-  .page:target {
-    left: 0vw;
-    z-index: 1;
-}
-</style>
-
+</head>
 <body>
-<div id="header" class="w3-container w3-flat-carrot">
-	<h1>Lupus or Rheumatoid arthritis?</h1>
-</div>
-<!--Changed the introduction inquiry. Used same script as App3 but just a bit different-->	
-<div id="content" class="w3-container">
-	<p>Are you feeling like you might have Lupus but have no idea if it could also be Rheumatoid arthritis. Google is telling you you have cancer based on your symptoms? Answer a few short questions to find out!</p>
-	
-	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
-	<a href="#two" class="w3-btn w3-black"> Go to Page Two </a> 
-	
-	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+  <div id="header" class="w3-container w3-flat-carrot">
+    <h1>Lupus vs Rheumatoid arthritis?</h1>
+  </div>
+  <div id="content" class="w3-container">
+    <p>Are you feeling like you might have Lupus but have no idea if it could also be Rheumatoid arthritis? Answer a few short questions to find out!</p>
+    <!-- Used instructions for App 4 to use this code; changed the url based on AI suggestion -->
+    <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1uivfM.img?w=800&h=415&q=60&m=2&f=jpg" alt="Arm with x-ray of bones/joint">
+    <br>
+    <a href="#one" class="w3-btn w3-grey w3-round">Get Started</a>
+  </div>
+  <p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 
-<div class="page" id="one">
-	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Question 1</h1>
-	</div>
-	<!--Added 1st question by simply changing the symptoms from APP 3 but kept same code style-->
-    	<div id="content" class="w3-container">
-        <p>Are you feeling joint stiffness and pain? </p> <!--added the first question. trying to follow format of the div above--> 
-	<a href="#one" class="w3-btn w3-grey w3-round"> Question 1 </a>
-	<a href="#two" onclick="LupusAdd();" class="w3-btn w3-green"> No </a> 
-	 <a href="#two" onclick="RheumatoidAdd();" class="w3-btn w3-red">Yes</a>
-
-    	</div>
-</div>
-<!--Question 2; edit the question and the onclick commanad-->
-<div class="page" id="two">
-	<div class="w3-container w3-flat-carrot">
-		<h2>Question 2</h2>
-		<! edited the h1 to h2-->
-		<p>Do you have a rash?</p>
-            <a href="#three" onclick="LupusAdd();" class="w3-btn w3-green">Yes</a>
-            <a href="#three" onclick="RheumatoidAdd();" class="w3-btn w3-red">No</a>
-	</div>
-	<!--Inputted Question 3 and the onclick commands for it. Used same code as App 3-->
-	<div class="page" id="three">
-        <div class="w3-container">
-            <h2>Question 3</h2>
-            <p>Are you feeling short of breath?</p>
-            <a href="#four" onclick="LupusAdd();" class="w3-btn w3-green">No</a>
-            <a href="#four" onclick="RheumatoidAdd();" class="w3-btn w3-red">Yes</a>
-	<div id="content" class="w3-container">
-		<p>Content of page 2 goes here.</p>
-	</div>
- </div>
-
-    <!-- Uesd same code as App 3 for Q4; seems to work but need to note here-->
-    <div class="page" id="four">
-        <div class="w3-container">
-            <h2>Question 4</h2>
-            <p>Do you have skin rashes from sunlight?</p>
-            <a href="#resultsPage" onclick="LupusAdd();" class="w3-btn w3-green">Yes</a>
-            <a href="#resultsPage" onclick="RheumatoidAdd();" class="w3-btn w3-red">No</a>
-	</div>
-</div>	
-<!--Results Page code from App 3 didn't work so will use a different format that labmate was taught from mentors-->
-	 function diagnosisResults()
-		{var LupusPercent = (Lupus_count/6) * 100; /* 6 pertains to the number of questions in total */         
-		var RheumatoidPercent = (Rheumatoid_count/6) * 100;         
-		var resultText = document.getElementById("results"); /* results links back to the last page */     
-		resultText.innerHTML = "Probability it is Lupus = " + LupusPercent + "%" + "<br> Probability it is Rheumatoid = " + RheumatoidPercent + "%"; /* this is the code for the function that allows the percent diagnosis of either Lupus or Rheumatoid to occur */ 
-		page <div class="page" <p id="seven"></p> <!-- page seven -->       
-			<div id="header" class="w3-container w3-flat-carrot">        
-				<h1>Results</h1>     
-			</div>       
-			<p id="results"></p> <!-- "results" - this part relates back to the diagnosis function/make sure it is identical -->       
-			<div id="content" class="w3-container">    
-				<a href="#seven" onclick="diagnosisResults();" class="w3-btn w3-black"> Results</a> <!-- this code reveals the diagnosis by relating back to the diagnosis code -->     
-			</div>: <div class="page" <p id="seven"></p> <!-- page seven -->        
-				<div id="header" class="w3-container w3-flat-carrot">         
-					<h1>Results</h1>     
-				</div>         
-				<p id="results"></p> <!-- "results" - this part relates back to the diagnosis function/make sure it is identical -->
-		
-		<div class="page" id="resultsPage">
-        <div class="w3-container">
-            <h2>Results</h2>
-            <p id="results"></p>
-            <button onclick="showResults();" class="w3-btn w3-blue">See Results</button>
-        </div>	
- </div>
-<footer class="w3-bottom w3-container w3-flat-carrot">
-	<p>DIY!</p>
-</footer>
-
+  <!-- Question 1 -->
+  <div class="page" id="one">
+    <div class="w3-container w3-flat-carrot">
+      <h1>Question 1</h1>
+    </div>
+    <div class="w3-container">
+      <p>Are you experiencing joint stiffness and pain?</p>
+      <a href="#two" onclick="LupusAdd();" class="w3-btn w3-green">Yes</a>
+      <a href="#two" onclick="RheumatoidAdd();" class="w3-btn w3-red">No</a>
+    </div>
+  </div>
+  
+  <!-- Question 2 -->
+  <div class="page" id="two">
+    <div class="w3-container w3-flat-carrot">
+      <h2>Question 2</h2>
+    </div>
+    <div class="w3-container">
+      <p>Do you have a rash?</p>
+      <a href="#three" onclick="LupusAdd();" class="w3-btn w3-green">Yes</a>
+      <a href="#three" onclick="RheumatoidAdd();" class="w3-btn w3-red">No</a>
+    </div>
+  </div>
+  
+  <!-- Question 3 -->
+  <div class="page" id="three">
+    <div class="w3-container w3-flat-carrot">
+      <h2>Question 3</h2>
+    </div>
+    <div class="w3-container">
+      <p>Are you experiencing shortness of breath?</p>
+      <a href="#four" onclick="LupusAdd();" class="w3-btn w3-green">No</a>
+      <a href="#four" onclick="RheumatoidAdd();" class="w3-btn w3-red">Yes</a>
+    </div>
+  </div>
+  
+  <!-- Question 4 -->
+  <div class="page" id="four">
+    <div class="w3-container w3-flat-carrot">
+      <h2>Question 4</h2>
+    </div>
+    <div class="w3-container">
+      <p>Do you have skin rashes triggered by sunlight?</p>
+      <a href="#resultsPage" onclick="LupusAdd();" class="w3-btn w3-green">Yes</a>
+      <a href="#resultsPage" onclick="RheumatoidAdd();" class="w3-btn w3-red">No</a>
+    </div>
+  </div>
+  
+  <!-- Results Page -->
+  <div class="page" id="resultsPage">
+    <div class="w3-container w3-flat-carrot">
+      <h2>Results</h2>
+    </div>
+    <div class="w3-container">
+      <p id="results"></p>
+      <button onclick="diagnosisResults();" class="w3-btn w3-blue">See Results</button>
+    </div>
+  </div>
+  
+  <footer class="w3-bottom w3-container w3-flat-carrot">
+    <p>DIY!</p>
+  </footer>
 </body>
 </html>
-		
-<!-- THIS STYLE CODE HELPS MAKE YOUR APP LOOK GOOD. PROBABLY DONT MESS WITH IT -->
-<style>	
-.body {
-     margin: 0em;
-}
 
-.page {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -100vw;
-    overflow-y: auto;
-    z-index: 0;
-    background-color: hsl(0,0%,100%);
-}
-
-  .page:target {
-    left: 0vw;
-    z-index: 1;
-}
-</style>
 
