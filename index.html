@@ -23,12 +23,17 @@ Brief Description of Goal of Code:
 Known Issues:
 <!--Put in the issues I had from the App 3, which was mainly with the results page. Plan to use lab mate help with a code that will bring out the result page
 	- Results page not doing the proper calculations-->
-Ignore this error message if you see it using the javaScript console: Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.
+	<!-- made this part a comment cuz it keeps showing up on the website page. Having more issues with these parts than in App 3-->
+<!--Ignore this error message if you see it using the javaScript console: Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.-->
 
 References:
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
+ <p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+
 	
 <!code initially did not work so asked AI for help in identifying areas of error. Implemented the corrects and new codes-->
 <!DOCTYPE html>
@@ -40,27 +45,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   <link rel="stylesheet" href="w3.css">
   <link rel="stylesheet" href="w3-colors-flat.css">
   <style>
-    img, object {
-      max-height: 90%;
-      max-width: 90%;
-    }
-    .body {
-      margin: 0;
-    }
-    .page {
-      width: 100vw;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: -100vw;
-      overflow-y: auto;
-      z-index: 0;
-      background-color: hsl(0, 0%, 100%);
-    }
-    .page:target {
-      left: 0vw;
-      z-index: 1;
-    }
+    img, object { max-height: 90%; max-width: 90%; }
+    .body { margin: 0; }
+    .page { width: 100vw; height: 100vh; position: fixed; top: 0; left: -100vw; overflow-y: auto; z-index: 0; background-color: white; }
+    .page:target { left: 0vw; z-index: 1; }
   </style>
   <script>
     var Lupus_count = 0;
@@ -68,7 +56,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
     function LupusAdd() {
       Lupus_count++;
-       alert("Lupus count: " + Lupus_count);
+      alert("Lupus count: " + Lupus_count);
     }
 
     function RheumatoidAdd() {
@@ -77,29 +65,27 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     }
 
     function diagnosisResults() {
-      var totalQuestions = 4; // Total number of questions
+      var totalQuestions = 4;
       var LupusPercent = (Lupus_count / totalQuestions) * 100;
       var RheumatoidPercent = (Rheumatoid_count / totalQuestions) * 100;
-      var resultText = document.getElementById("results");
-      resultText.innerHTML = "Probability it is Lupus = " + LupusPercent + "%<br>" +
-                             "Probability it is Rheumatoid = " + RheumatoidPercent + "%";
+      document.getElementById("results").innerHTML =
+        "Probability it is Lupus = " + LupusPercent.toFixed(2) + "%<br>" +
+        "Probability it is Rheumatoid = " + RheumatoidPercent.toFixed(2) + "%";
     }
   </script>
 </head>
 <body>
+
   <div id="header" class="w3-container w3-flat-carrot">
     <h1>Lupus vs Rheumatoid arthritis?</h1>
   </div>
+  
   <div id="content" class="w3-container">
     <p>Are you feeling like you might have Lupus but have no idea if it could also be Rheumatoid arthritis? Answer a few short questions to find out!</p>
-    <!-- Used instructions for App 4 to use this code; changed the url based on AI suggestion -->
-    <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1uivfM.img?w=800&h=415&q=60&m=2&f=jpg" alt="Arm with x-ray of bones/joint">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/X-ray_arm_fracture.jpg" alt="Arm X-ray" width="300">
     <br>
     <a href="#one" class="w3-btn w3-grey w3-round">Get Started</a>
   </div>
-  <p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
- 	
-	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 
   <!-- Question 1 -->
   <div class="page" id="one">
@@ -112,7 +98,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <a href="#two" onclick="RheumatoidAdd();" class="w3-btn w3-red">No</a>
     </div>
   </div>
-  
+
   <!-- Question 2 -->
   <div class="page" id="two">
     <div class="w3-container w3-flat-carrot">
@@ -124,7 +110,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <a href="#three" onclick="RheumatoidAdd();" class="w3-btn w3-red">No</a>
     </div>
   </div>
-  
+
   <!-- Question 3 -->
   <div class="page" id="three">
     <div class="w3-container w3-flat-carrot">
@@ -136,33 +122,22 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <a href="#four" onclick="RheumatoidAdd();" class="w3-btn w3-red">Yes</a>
     </div>
   </div>
-  
-  <!-- Question 4 -->
-  <div class="page" id="four">
-    <div class="w3-container w3-flat-carrot">
-      <h2>Question 4</h2>
-    </div>
-    <div class="w3-container">
-      <p>Do you have skin rashes triggered by sunlight?</p>
-      <a href="#resultsPage" onclick="LupusAdd();" class="w3-btn w3-green">Yes</a>
-      <a href="#resultsPage" onclick="RheumatoidAdd();" class="w3-btn w3-red">No</a>
-    </div>
-  </div>
-  
+
   <!-- Results Page -->
   <div class="page" id="resultsPage">
     <div class="w3-container w3-flat-carrot">
       <h2>Results</h2>
     </div>
     <div class="w3-container">
-      <p id="results"></p>
+      <p id="results">Click below to see results.</p>
       <button onclick="diagnosisResults();" class="w3-btn w3-blue">See Results</button>
     </div>
   </div>
-  
+
   <footer class="w3-bottom w3-container w3-flat-carrot">
     <p>DIY!</p>
   </footer>
+
 </body>
 </html>
 
